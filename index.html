@@ -17,9 +17,15 @@
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     
     <script src="systemjs.config.js"></script>
+    <script>[]
+      System.import('app').catch(function(err){console.log(err);});
+    </script>
   </head>
   
   <body class="container">
-    
+    <events-app>Since event-app is the first component and this will be the root of the component tree
+      we will have to tell this to angular, for this we will have to do ===> create an angular module
+
+    </events-app>
   </body>
 </html>
