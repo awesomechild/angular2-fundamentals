@@ -5,11 +5,16 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { EventsAppComponent} from './events-app.component'
+import { EventsListComponent } from './events/events-list.component'
+
 
 @NgModule({
     imports:[BrowserModule],
     //components have to registered in the modules therefore we do this
-    declarations:[EventsAppComponent],
+    declarations:[
+        EventsAppComponent,
+        EventsListComponent
+    ],
     //now bootstrap the EventsAppComponent here
     bootstrap: [EventsAppComponent]
     // create a ts file now that we can load from our index.html that will do our initial bootstrapping and load this module
