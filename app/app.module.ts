@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { EventsAppComponent} from './events-app.component'
 import { EventsListComponent } from './events/events-list.component'
+import { EventThumbnailComponent } from './events/event-thumbnail.component'
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { EventsListComponent } from './events/events-list.component'
     //components have to registered in the modules therefore we do this
     declarations:[
         EventsAppComponent,
-        EventsListComponent
+        EventsListComponent,
+        EventThumbnailComponent
     ],
     //now bootstrap the EventsAppComponent here
     bootstrap: [EventsAppComponent]

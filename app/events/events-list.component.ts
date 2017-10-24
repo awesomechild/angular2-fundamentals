@@ -2,16 +2,17 @@ import { Component } from '@angular/core'
 
 @Component({
     selector: 'events-list',
-
-    // templateUrl is always relative to the root of the applcation and the root of the application is 
-    // wherever our index.html file is that loads our application and we actually could do something to make this
-    // relative to the component , which is really nice, but we're not prepared to do that yet, we'll talk 
-    // about that when we talk about building for a production
-    
-    templateUrl: 'app/events/events-list.component.html'
+    template: 
+    `
+        <div>
+            <h1>Upcoming Angular 2 Events</h1>
+            <hr/>
+            <event-thumbnail [event]="event1"></event-thumbnail>
+        </div>
+    `
 })
 export class EventsListComponent{
-    event = {
+    event1 = {
         id:1,
         name:"Angular Connect",
         date:'7/09/2100',
