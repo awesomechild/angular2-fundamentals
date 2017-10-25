@@ -7,8 +7,9 @@ import {Component, Input, Output, EventEmitter} from '@angular/core'
         <div class="well hoverwell thumbnail">
             <h2>{{event?.name}}</h2> 
             <div>Date:{{event?.date}}</div>
-            <div [ngSwitch]="event?.time">
-                Time:{{event?.time}}
+            <div [class.green]="event.time === '8:00 am'" [ngSwitch]="event?.time">
+            <!--if the expression event.time === '8:00 am' returns true then add the class green to this div element is what it is saying -->
+            Time:{{event?.time}}
                 <span *ngSwitchCase="'8:00 am'">(Early start)</span>
                 <span *ngSwitchCase="'10:00 am'">(Late start)</span>
                 <span *ngSwitchDefault>(Normal start)</span>
@@ -24,6 +25,8 @@ import {Component, Input, Output, EventEmitter} from '@angular/core'
         </div>
     `,
     styles:[`
+        .bold { font-weight: bold; }
+        .green { color: #003300 !important; }
         .pad-left{ margin-left:10px; }
         .thumbnail { min-height:210px; } 
         ..well div{ color: #bbb}
