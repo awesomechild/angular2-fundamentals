@@ -8,19 +8,19 @@ import { EventsAppComponent} from './events-app.component'
 import { EventsListComponent } from './events/events-list.component'
 import { EventThumbnailComponent } from './events/event-thumbnail.component'
 import { NavBarComponent } from './nav/navbar.component'
+import { EventService } from "./events/shared/event.service";
+
 
 @NgModule({
     imports:[BrowserModule],
-    //components have to registered in the modules therefore we do this
     declarations:[
         EventsAppComponent,
         EventsListComponent,
         EventThumbnailComponent,
         NavBarComponent
     ],
-    //now bootstrap the EventsAppComponent here
-    bootstrap: [EventsAppComponent]
-    // create a ts file now that we can load from our index.html that will do our initial bootstrapping and load this module
+    bootstrap: [EventsAppComponent],
+    providers:[EventService]
 })
 
 export class AppModule{
