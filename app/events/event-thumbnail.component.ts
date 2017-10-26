@@ -4,7 +4,7 @@ import {Component, Input, Output, EventEmitter} from '@angular/core'
     selector:'event-thumbnail',
     template:
     `
-        <div class="well hoverwell thumbnail">
+        <div [routerLink]="['/events', event.id]" class="well hoverwell thumbnail">
             <h2>{{event?.name}}</h2> 
             <div>Date:{{event?.date}}</div>
             <div [ngClass]="getStartTimeClass()" [ngSwitch]="event?.time">
@@ -34,22 +34,9 @@ import {Component, Input, Output, EventEmitter} from '@angular/core'
 }) 
 
 export class EventThumbnailComponent{
-    // ? is the safe navigation tool that will not throw an error if that object is undefined, it will show its place but
-    // will not show the value of the key
     @Input() event:any
 
     getStartTimeClass(){
-        // METHOD 1 of returning objects to ngClass
-        // const isEarlyStart = this.event && this.event.time === '8:00 am'
-        // return {green: isEarlyStart, bold: isEarlyStart}
-
-        // METHOD 2 using string literal, return the names of the classes you would like to add seperated by spaces
-        // if(this.event && this.event.time === '8:00 am')
-        //     return 'green bold'
-        // return ''
-        // you will have to set the return type of this method to ensure typescripts type safety 
-
-        // METHOD3 using arrays
         if(this.event && this.event.time === '8:00 am')
             return ['green', 'bold']
         return []
