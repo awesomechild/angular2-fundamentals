@@ -4,7 +4,6 @@ import { ToastrService} from "../common/toastr.service"
 
 
 @Component({
-    selector: 'events-list',
     template:
     `
     <div>
