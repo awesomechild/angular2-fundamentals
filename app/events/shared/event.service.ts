@@ -1,13 +1,16 @@
-// ultimately this service will make an ajax call to the server
-// marks services as injectables always
-
-
 import { Injectable } from '@angular/core'
+import { Subject } from 'rxjs/Rx'
+
 
 @Injectable()
 export class EventService {
     getEvents(){
-        return EVENTS
+        let subject  = new Subject();
+        setTimeout(()=>{ 
+            subject.next(EVENTS); 
+            subject.complete();
+        }, 100)
+        return subject
     }
 
     getEvent(id:number){
