@@ -27,7 +27,8 @@ export class EventsListComponent implements OnInit{
     ngOnInit(){
         this.events = this.route.snapshot.data['events']
     }
-    getToast(eventName){
-        this.toastr.success(eventName);
+
+    handleThumbnailClick(eventName){
+        this.toastr.success(eventName)
     }
 }
