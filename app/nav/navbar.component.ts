@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-
+import { AuthService } from '../user/auth.service'
 @Component({
     selector : "nav-bar",
     templateUrl: "app/nav/navbar.component.html",
@@ -12,10 +12,7 @@ import { Component } from '@angular/core'
 })
 
 export class NavBarComponent{
-    // Property binding demo
-    // Property binding simply means you're passing data from the component class and setting the value of a given element in the view.
-    // Property binding is one way, in that the data is transferred from the component to the class. 
-    // PROPERTY BINDING IS USED WHEN YOU WANT TO BIND THE DATA TO THE PROPERTY OF A DOM ELEMENT
-    // interpolation or the double stash {{}} is used when you want to display that data
-    
+    constructor(private auth: AuthService){
+        
+    }
 }
