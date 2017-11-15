@@ -10,12 +10,14 @@ import { Component, Input, OnChanges } from "@angular/core";
 export class SessionListComponent implements OnChanges{
     @Input() sessions:any[];
     @Input() filterBy: string;
+    @Input() sortBy:string;
     visibleSessions: any[] = [];
 
     ngOnChanges() {
         if(this.sessions){
             //if session is not set we dont want to do anything else we will filter sessions according to the following rule
             this.filterSessions(this.filterBy);
+            this.sortBy === 'name' ? this.visibleSessions.sort(sortByNameAsc) : this.visibleSessions.sort(sortByVotesDesc); 
         }
     }
     filterSessions(filter){
@@ -30,5 +32,15 @@ export class SessionListComponent implements OnChanges{
             });
         }
     }
-
 }
+
+function sortByNameAsc(s1:any, s2:any){
+    if (s1.name > s2.name ) return 1;
+    else if(s1.name === s2.name) return 0;
+    else return -1;
+}
+
+function sortByVotesDesc(s1: any, s2:any){
+    return -1*(s1.voters.length-s2.voters.length);
+}
+
